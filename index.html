@@ -14,8 +14,21 @@
             <h2>Bienvenidos al control de monitoreo 2.0</h2>
         </div>
         <div class="formulario">
-            <select name="cbo_lista_paises" id="cbo_lista_paises" class="cbo_lista_paises"></select>
-            <button id="btn_aceptar">Aceptar</button>
+            <select name="cbo_lista_paises" id="cbo_lista_paises" class="cbo_lista_paises">
+                <option value="0">Seleccione un país</option>
+            </select>
+            <input type="text" placeholder="Ingrese la patente del vehículo" id="input_patente" class="input_patente">
+            <button id="btn_agregar">Agregar</button>
+            
+            <div class="reporte">
+                <select name="paises_registrados" id="lista_reportes" size="20">
+                    <option value="0">Argentina -- aEfa</option>
+                </select>
+                <br>
+                <button id="btn_limpiar_reportes">Limpiar Reportes</button>
+            </div>
+
+            
         </div>
     </main>
     <script src="./js/app.js"></script>

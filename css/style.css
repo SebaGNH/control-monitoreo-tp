@@ -27,9 +27,20 @@ main div h2{
 }
 
 main .formulario{
-    width: 90%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
 main .formulario select{
-    width: 100%;
+   /*  width: 100%; */
+}
+main .formulario input[type=text]{
+    /* width: 100%; */
+}
+main .formulario select{
+   /*  width: 100%; */
 }
