@@ -67,8 +67,13 @@ main .formulario .cbo_lista_paises, input[type="text"]{
     transition: .3s;
     border: 1px solid #000; 
 }
+
 main .formulario input[type="text"]:hover{
     border: 1px solid #51D322;
+}
+
+.advertencia{
+    border: 5px solid red
 }
 
 main .formulario .btn_agregar{
@@ -87,17 +92,4 @@ main .formulario .btn_agregar:hover{
     background: #51D322;
     color: #fff;
     
-}
-
-
-main .reporte .filtros{ /* radio buttons */
-    background-color: #292929;
-}
-main .reporte .lista_reportes{
-    /* border: 1px solid #000;  */
-}
-
-
-main .reporte .filtros label{
-    font-size: .8em
 }

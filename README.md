@@ -1,23 +1,27 @@
-Trabajo practico programa PIL – HTML & CSS
+# Trabajo practico programa PIL – HTML & CSS
+
+[https://sebagnh.github.io/control-monitoreo-tp/](https://sebagnh.github.io/control-monitoreo-tp/ "Click para ver online")
+
+
 
 Consigna:
 Como pasante del área de desarrollo de Vates Software se solicita el desarrollo de una app web que permita el control y monitoreo de los camiones que pasan por la aduana argentina-Chile ubicada en la provincia de Mendoza en la cual usted deberá capturar la siguiente información.
 País de origen:
-•	Argentina
-•	Chile
-•	Brasil
+* Argentina
+* Chile
+* Brasil
 
 Patente del vehículo en formato texto(string)
 Una vez capturada la información deberá mostrar refrescar una lista donde vean los últimos ingresos de la siguiente manera.
- 
+
 Recuerde que los vehículos argentinos deben mostrarse en color azul, Brasil en verde y chile.
 Para desarrollar dicho objetivo deberá manipular los eventos html de los controles y funciones de Javascript, también la lista deberá extraer información de un array en el cual se pueden usar los métodos push(), foreach(), map(), todo aquel que considere necesario.
 
 Criterios de evaluación:
 
-HTML: 35%
-CSS: 30%
-JavaScript: 35%
+* HTML: 35%
+* CSS: 30%
+* JavaScript: 35%
 
 
 
@@ -508,4 +512,14 @@ const llenar_obj_reportes = () => {
 
 
 }
+
+
+
+
+          <div class="filtros">
+                <label for="filtro_pais"> <input type="radio" name="filtro_pais" value="Todos"id="rb_todos"> Todos </label>                
+                <label for="filtro_pais"><input type="radio" name="filtro_pais" value="Argentina"id="rb_Argentina">Argentina</label>
+                <label for="filtro_pais"><input type="radio" name="filtro_pais" value="Brasil"id="rb_brasil">Brasil</label>
+                <label for="filtro_pais"><input type="radio" name="filtro_pais" value="Chile"id="rb_chile">Chile</label>
+            </div>  
 -->
