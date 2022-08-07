@@ -50,7 +50,8 @@ mostrar_paises();
 
 
 // Botón Agregar --------------------------
-btn_agregar.addEventListener("click",()=>{
+btn_agregar.addEventListener("click",(e)=>{
+    e.preventDefault();
     const id_patente = patentes.length + 1;
     const patente_value = input_patente.value.toUpperCase();
     const cbo_Seleccionado = cbo_lista_paises.options[cbo_lista_paises.selectedIndex].value; //ver
@@ -87,7 +88,6 @@ const llenar_obj_reportes = () => {
                 break;
         }
         lista_reportes.appendChild(option);
-        console.log(patente);
     });
 }
 llenar_obj_reportes();
