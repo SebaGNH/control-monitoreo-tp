@@ -5,15 +5,18 @@
 const lista_paises = [
     {
         id: 1,
-        nombre: 'Argentina'
+        nombre: 'Argentina',
+        color_pais: '#75aadb'
     },
     {
         id: 2,
-        nombre: 'Brasil'
+        nombre: 'Brasil',
+        color_pais: '#009b3a'
     },
     {
         id: 3,
-        nombre: 'Chile'
+        nombre: 'Chile',
+        color_pais: '#eb3c46'
     }
 ];  
 
@@ -85,17 +88,34 @@ btn_agregar.addEventListener("click",()=>{
 
 
 const llenar_obj_reportes = () => {
-    
-    let option = document.createElement('option');
-    console.log(patentes.length);
+    console.clear()
+
+
 
     patentes.map( (patente) =>{
+        let option = document.createElement('option');
         option.value = `${patente.id}`;
         option.text = `${patente.pais_origen} - ${patente.patente_codigo}`;
 
-        option.style.color = "red"
+        switch (patente.pais_origen) {
+            case "Argentina": option.style.color = "#75aadb";
+                break;
+            case "Brasil": option.style.color = "#009b3a";
+                break;
+            case "Chile": option.style.color = "#eb3c46";
+                break;        
+            default: option.style.color = "#000";
+                break;
+        }
+
         lista_reportes.appendChild(option);
+        console.log(patente);
     });
+
+
+    console.log(patentes.length);
+    console.log(patentes)
+
 }
 llenar_obj_reportes();
 
