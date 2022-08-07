@@ -13,6 +13,9 @@
         <div>
             <h2>Bienvenidos al control de monitoreo 2.0</h2>
         </div>
+
+
+        <!-- Formulario -->
         <div class="formulario">
             <select name="cbo_lista_paises" id="cbo_lista_paises" class="cbo_lista_paises">
                 <option value="0">Seleccione un país</option>
@@ -20,17 +23,24 @@
             <input type="text" placeholder="Ingrese la patente del vehículo" id="input_patente" class="input_patente">
             <button id="btn_agregar">Agregar</button>
             
-            <div class="reporte">
-                <select name="paises_registrados" id="lista_reportes" size="20">
-                    <option value="0">Argentina -- aEfa</option>
-                </select>
-                <br>
-                <button id="btn_limpiar_reportes">Limpiar Reportes</button>
-            </div>
-
-            
         </div>
+
+
+        <!-- Reportes  y Radio-->
+        <div class="reporte">
+            <div class="filtros">
+                <label for="filtro_pais"> <input type="radio" name="filtro_pais" value="Todos"id="rb_todos"> Todos </label>                
+                <label for="filtro_pais"><input type="radio" name="filtro_pais" value="Argentina"id="rb_Argentina">Argentina</label>
+                <label for="filtro_pais"><input type="radio" name="filtro_pais" value="Brasil"id="rb_brasil">Brasil</label>
+                <label for="filtro_pais"><input type="radio" name="filtro_pais" value="Chile"id="rb_chile">Chile</label>
+            </div> 
+            <select name="paises_registrados" id="lista_reportes" multiple>
+            </select>
+        </div>            
+
+
+
     </main>
-    <script src="./js/app.js"></script>
+    <script src="./js/app.js" defer></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 50vh;
+    font-size: 16px;
 }
 
 main{
@@ -26,7 +27,7 @@ main div h2{
     text-align: center;
 }
 
-main .formulario{
+main .formulario, .reporte{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -35,12 +36,18 @@ main .formulario{
     margin-top: 10px;
 }
 
-main .formulario select{
-   /*  width: 100%; */
+main .reporte .filtros{
+    background-color: #292929;
 }
-main .formulario input[type=text]{
-    /* width: 100%; */
+
+
+main .reporte .filtros label{
+    font-size: .8em
 }
-main .formulario select{
-   /*  width: 100%; */
+
+main .reporte select option{
+    /* color: green; */
+}
+.verde{
+    color: green;
 }

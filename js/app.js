@@ -17,11 +17,37 @@ const lista_paises = [
     }
 ];  
 
-const cbo_lista_paises = document.getElementById("cbo_lista_paises");
-const input_patente = document.getElementById("input_patente");
-const btn_agregar = document.getElementById("btn_agregar");
-let patentes = new Array();
-const lista_reportes = document.getElementById("lista_reportes");
+
+//const patentes = new Array();
+/* const patentes = [
+    {id:1,
+    pais_origen: "Argentina",
+    patente_codigo: "ARG - 852"
+    },
+    {id:2,
+    pais_origen: "Brasil",
+    patente_codigo: "BRA - 654"
+    },
+    {id:3,
+    pais_origen: "Chile",
+    patente_codigo: "CHI - 753"
+    },
+] */
+
+const patentes = new Array();
+patentes.push({id:1, pais_origen: "Argentina", patente_codigo: "ARG - 852"});
+patentes.push({id:2, pais_origen: "Brasil", patente_codigo: "BRA - 654"});
+patentes.push({id:3, pais_origen: "Chile", patente_codigo: "CHI - 753"});
+
+
+const cbo_lista_paises = document.getElementById('cbo_lista_paises');
+const input_patente = document.getElementById('input_patente');
+const btn_agregar = document.getElementById('btn_agregar');
+
+const lista_reportes = document.getElementById('lista_reportes');
+
+
+
 
 //Llenado de comboBox de paises
 const mostrar_paises = ()=>{
@@ -34,39 +60,68 @@ mostrar_paises();
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+
 // Botón Agregar
 btn_agregar.addEventListener("click",()=>{
+    const id_patente = patentes.length + 1;
+    const patente_value = input_patente.value.toUpperCase();
+    const cbo_Seleccionado = cbo_lista_paises.options[cbo_lista_paises.selectedIndex].value; //ver
+    patentes.push({id:id_patente, pais_origen: cbo_Seleccionado, patente_codigo: patente_value});  
 
-    ///validar_campos();
 
-    if (validar_campos()) {
-        console.log("validos");
-    }else{
-        console.log("invalidos");
-    } 
-
-    //console.log(validar_campos());
-
-    patentes.push(input_patente.value);
-    let cant_registros = patentes.length;
-
-    let cbo_Seleccionado = cbo_lista_paises.options[cbo_lista_paises.selectedIndex].value;
+    llenar_obj_reportes();
     
-    let nuevo_elemento_opcion = document.createElement("option");    
-    nuevo_elemento_opcion.text = cbo_Seleccionado +" - "+patentes[cant_registros -1];
-    nuevo_elemento_opcion.value = patentes.length;
-    lista_reportes.options[cant_registros] = new Option( nuevo_elemento_opcion.text,nuevo_elemento_opcion.value);
-
     limpiar_campos();    
 })
 
 
 
 
+
+
+const llenar_obj_reportes = () => {
+    
+    let option = document.createElement('option');
+    console.log(patentes.length);
+
+    patentes.map( (patente) =>{
+        option.value = `${patente.id}`;
+        option.text = `${patente.pais_origen} - ${patente.patente_codigo}`;
+
+        option.style.color = "red"
+        lista_reportes.appendChild(option);
+    });
+}
+llenar_obj_reportes();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////-----------------------------------------////////////////////////////////
 // Limpiar campos
 const limpiar_campos = () => {
     input_patente.value = "";
     //input_patente.focus();
+    cbo_lista_paises.selectedIndex = 0;
+
 }
 
 const validar_campos = () => {
