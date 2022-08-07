@@ -21,22 +21,7 @@ const lista_paises = [
 ];  
 
 
-//const patentes = new Array();
-/* const patentes = [
-    {id:1,
-    pais_origen: "Argentina",
-    patente_codigo: "ARG - 852"
-    },
-    {id:2,
-    pais_origen: "Brasil",
-    patente_codigo: "BRA - 654"
-    },
-    {id:3,
-    pais_origen: "Chile",
-    patente_codigo: "CHI - 753"
-    },
-] */
-
+// variables
 const patentes = new Array();
 patentes.push({id:1, pais_origen: "Argentina", patente_codigo: "ARG - 852"});
 patentes.push({id:2, pais_origen: "Brasil", patente_codigo: "BRA - 654"});
@@ -55,7 +40,6 @@ const lista_reportes = document.getElementById('lista_reportes');
 //Llenado de comboBox de paises
 const mostrar_paises = ()=>{
     lista_paises.map( (pais)=> {
-        //console.log(pais.nombre +" "+ pais.id);
         cbo_lista_paises.add(new Option(pais.nombre));
     });
 }
@@ -63,10 +47,7 @@ mostrar_paises();
 
 
 
-
-
-/////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 // Botón Agregar
@@ -74,28 +55,21 @@ btn_agregar.addEventListener("click",()=>{
     const id_patente = patentes.length + 1;
     const patente_value = input_patente.value.toUpperCase();
     const cbo_Seleccionado = cbo_lista_paises.options[cbo_lista_paises.selectedIndex].value; //ver
-    lista_reportes.innerHTML="";
-    patentes.push({id:id_patente, pais_origen: cbo_Seleccionado, patente_codigo: patente_value});  
 
-
-    validar_campos();
-
-
-    llenar_obj_reportes();
+    if (validar_campos()) {
+        lista_reportes.innerHTML="";
+        patentes.push({id:id_patente, pais_origen: cbo_Seleccionado, patente_codigo: patente_value});  
+        llenar_obj_reportes();
     
-    limpiar_campos();    
+        limpiar_campos();
+    }
 })
 
 
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 const llenar_obj_reportes = () => {
-    console.clear()
-
-
-
     patentes.map( (patente) =>{
         
         let option = document.createElement('option');
@@ -116,31 +90,13 @@ const llenar_obj_reportes = () => {
         lista_reportes.appendChild(option);
         console.log(patente);
     });
-
-
-    console.log(patentes.length);
-    console.log(patentes)
-
 }
 llenar_obj_reportes();
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////-----------------------------------------////////////////////////////////
 // Limpiar campos
 const limpiar_campos = () => {
     input_patente.value = "";
@@ -149,12 +105,12 @@ const limpiar_campos = () => {
 
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 const validar_campos = () => {
     let bandera = true;
-
-    
-    
-
     if (cbo_lista_paises.selectedIndex == 0) {
         //console.log("seleccionado 0")
         cbo_lista_paises.focus();
@@ -169,28 +125,8 @@ const validar_campos = () => {
             input_patente.style.borderColor  = "red"; 
             bandera = false;
         }else{
-            input_patente.style.borderColor  = "initial";
-            
+            input_patente.style.borderColor  = "initial";            
         }
     }
-
     return bandera;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
